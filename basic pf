@@ -1,0 +1,52 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import pandas_datareader.data as wb
+import datetime
+
+ETF1_df = wb.DataReader("069500.KS",data_source="yahoo",start='2018-02-19',end='2018-03-22')
+ETF2_df = wb.DataReader("091160.KS",data_source="yahoo",start='2018-02-19',end='2018-03-22')
+ETF3_df = wb.DataReader("091170.KS",data_source="yahoo",start='2018-02-19',end='2018-03-22')
+ETF4_df = wb.DataReader("091180.KS",data_source="yahoo",start='2018-02-19',end='2018-03-22')
+ETF_df = pd.concat([ETF1_df['Open'],ETF2_df['Open'],ETF3_df['Open'],ETF4_df['Open']],axis=1)
+
+ETF_df.columns=['ETF1','ETF2','ETF3','ETF4']
+
+ETF_corr = ETF_df.corr()
+ETF_mean = ETF_df.mean()
+ETF_std = ETF_df.std()
+
+daily_return=ETF_df.pct_change().dropna()
+
+q1_return = daily_return.mean()*90
+q1_cov = daily_return.cov()*90
+
+pf_returns, pf_volatility, pf_sharpe_ratio, pf_ETF_df_weights = ([] for i in range(4))
+
+num_portfolios =10000
+
+for portfolio in range(num_portfolios):
+    weights= np.random.random(4)
+    weights /= np.sum(weights)
+    returns = np.dot(weights, q1_return)
+    volatility = np.sqrt(np.dot(weights.T, np.dot(q1_cov, weights)))
+    sharpe = returns / volatility
+    pf_ETF_df_weights.append(weights)
+    pf_returns.append(returns)
+    pf_volatility.append(volatility)
+    pf_sharpe_ratio.append(sharpe)
+ 
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+%matplotlib notebook
+plt.figure(figsize=(15,7))
+plt.scatter(x=pf_volatility, y=pf_returns, c=pf_sharpe_ratio, cmap='viridis')
+plt.colorbar(label='Sharpe Ratio')
+sns.set(style='darkgrid')
+plt.title('Efficient Frontier')
+plt.xlabel('Volatility')
+plt.ylabel('Return')
+plt.show()
+max(pf_sharpe_ratio)
+pf_sharpe_ratio.index(max(pf_sharpe_ratio))
