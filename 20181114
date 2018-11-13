@@ -4,6 +4,9 @@ import matplotlib.pyplot as plt
 import pandas_datareader.data as wb
 import datetime
                     # H.C 불러들이기
+input_file = "Human Capital_data.csv"
+HC_df = pd.read_csv(input_file, index=date, columns= columns)
+
 ETF1_df = wb.DataReader("069500.KS",data_source="yahoo",start='2018-02-19',end='2018-03-22')  #KODEX 200
 ETF2_df = wb.DataReader("091160.KS",data_source="yahoo",start='2018-02-19',end='2018-03-22')  #Kodex Semicon
 ETF3_df = wb.DataReader("091170.KS",data_source="yahoo",start='2018-02-19',end='2018-03-22')  #Kodex Banks
@@ -62,8 +65,9 @@ plt.ylabel('Return')
 plt.show()
 
                                           # 이때까지 나온거에 available pf visual
-pf_ETF_df_weights[pf_sharpe_ratio.index(max(pf_sharpe_ratio))]
+pf_ETF_df_weights[pf_sharpe_ratio.index(max(pf_sharpe_ratio))]    #최적 포트폴리오
 
 
 pf_op_returns, pf_op_volatility, pf_op_sharpe_ratio, pf_op_ETF_df_weights = ([] for i in range(4))
+
 
