@@ -75,3 +75,21 @@ pf_op_returns, pf_op_volatility, pf_op_sharpe_ratio, pf_op_ETF_df_weights = ([] 
 pf1 = pf_ETF_df_weights[pf_op_sharpe_ratio.index(max(pf_op_sharpe_ratio))][:3]
 pf_op_[   ]=[    ][   .index(max(pf_op_sharpe_ratio]
 
+
+                                                                # 여기까지가 prime Asset class (ETF)
+                                                                  이 후 +Industry Asset class => Financial Capital (이건 그냥 산업군 포함시키면 안되나)
+                                                                  +Pension Wealth
+                                                                  (연금 수령 지급일 및 연금 축적 비율)
+                                                                  +Real Estate
+                                                                  (가정 : (M.S : 25살, 세후연봉 40,000, 임금상승률 : 1%
+                                                                  임금에서 저축하는 비율 : 10%, 이자율 : 8%, inflation :% 기준에서
+                                                                  30살 기준 100,000$짜리 10% down pay하고 대출이자 :5%, 집값상승률 : 1%)
+                                                                  In Korea ?
+
+
+뒤에 Asset weights by Scenarios -> 이걸 어떻게 조정 잘 못하나?
+
+
+
+
+#--------------------------------------------------------------
