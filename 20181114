@@ -34,10 +34,10 @@ ETF_std = ETF_df.std()
 
 daily_return=ETF_df.pct_change().dropna()
 
-q1_return = daily_return.mean()*90
-q1_cov = daily_return.cov()*90    # why? *90?
+q1_return = daily_return.mean()*n
+q1_cov = daily_return.cov()*n    # n = period
 
-pf_returns, pf_volatility, pf_sharpe_ratio, pf_ETF_df_weights = ([] for i in range(4))
+pf_returns, pf_volatility, pf_sharpe_ratio, pf_ETF_df_weights, pf_op_sharpe_ratio = ([] for i in range(5))
 num_portfolios =10000
 for portfolio in range(num_portfolios):
     weights= np.random.random(n) # n = number of Asset Class
@@ -45,10 +45,12 @@ for portfolio in range(num_portfolios):
     returns = np.dot(weights, q1_return)
     volatility = np.sqrt(np.dot(weights.T, np.dot(q1_cov, weights)))
     sharpe = returns / volatility
+    op_sharpe =(returns - k) / volatility # k = non-risk interest
     pf_ETF_df_weights.append(weights)
     pf_returns.append(returns)
     pf_volatility.append(volatility)
     pf_sharpe_ratio.append(sharpe)
+    pf_op_sharpe_ratio.append(op_sharpe)
                                           # 데이터 생성
                                           
                                           
@@ -65,9 +67,11 @@ plt.ylabel('Return')
 plt.show()
 
                                           # 이때까지 나온거에 available pf visual
+                                          
 pf_ETF_df_weights[pf_sharpe_ratio.index(max(pf_sharpe_ratio))]    #최적 포트폴리오
-
 
 pf_op_returns, pf_op_volatility, pf_op_sharpe_ratio, pf_op_ETF_df_weights = ([] for i in range(4))
 
+pf1 = pf_ETF_df_weights[pf_op_sharpe_ratio.index(max(pf_op_sharpe_ratio))][:3]
+pf_op_[   ]=[    ][   .index(max(pf_op_sharpe_ratio]
 
