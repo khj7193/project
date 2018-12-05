@@ -7,22 +7,22 @@ import datetime
 input_file = "Human Capital_data.csv"
 HC_df = pd.read_csv(input_file, index=date, columns= columns)
 
-ETF1_df = wb.DataReader("069500.KS",data_source="yahoo",start='2018-02-19',end='2018-03-22')  #KODEX 200
-ETF2_df = wb.DataReader("091160.KS",data_source="yahoo",start='2018-02-19',end='2018-03-22')  #Kodex Semicon
-ETF3_df = wb.DataReader("091170.KS",data_source="yahoo",start='2018-02-19',end='2018-03-22')  #Kodex Banks
-ETF4_df = wb.DataReader("091180.KS",data_source="yahoo",start='2018-02-19',end='2018-03-22')  #Kodex Autos
-ETF5_df = wb.DataReader("099140.KS",data_source="yahoo",start='2018-02-19',end='2018-03-22')  #KODEX China H
-ETF6_df = wb.DataReader("101280.KS",data_source="yahoo",start='2018-02-19',end='2018-03-22')  #KODEX Japan
-ETF7_df = wb.DataReader("102780.KS",data_source="yahoo",start='2018-02-19',end='2018-03-22')  #KODEX Samsung Group
-ETF8_df = wb.DataReader("102960.KS",data_source="yahoo",start='2018-02-19',end='2018-03-22')  #Kodex Shipbuilding
-ETF9_df = wb.DataReader("102970.KS",data_source="yahoo",start='2018-02-19',end='2018-03-22')  #Samsung Kodex Securities ETF - Equity 
-ETF10_df = wb.DataReader("114260.KS",data_source="yahoo",start='2018-02-19',end='2018-03-22') #Samsung Kodex Treasury Bond Securities ETF - Bonds
-ETF11_df = wb.DataReader("114800.KS",data_source="yahoo",start='2018-02-19',end='2018-03-22') #Samsung Kodex Inverse ETF - Equity-Derivatives 
-ETF12_df = wb.DataReader("117460.KS",data_source="yahoo",start='2018-02-19',end='2018-03-22') #Kodex Energy & Chemicals 
-ETF13_df = wb.DataReader("117680.KS",data_source="yahoo",start='2018-02-19',end='2018-03-22') #KODEX Steels
-ETF14_df = wb.DataReader("117700.KS",data_source="yahoo",start='2018-02-19',end='2018-03-22') #KODEX Constructions 
-ETF15_df = wb.DataReader("122630.KS",data_source="yahoo",start='2018-02-19',end='2018-03-22') #Kodex Leverage 
-ETF16_df = wb.DataReader("132030.KS",data_source="yahoo",start='2018-02-19',end='2018-03-22') #Samsung KODEX Gold ETF - Gold-Derivatives
+ETF1_df = wb.DataReader("069500.KS",data_source="yahoo")  #KODEX 200
+ETF2_df = wb.DataReader("091160.KS",data_source="yahoo")  #Kodex Semicon
+ETF3_df = wb.DataReader("091170.KS",data_source="yahoo")  #Kodex Banks
+ETF4_df = wb.DataReader("091180.KS",data_source="yahoo")  #Kodex Autos
+ETF5_df = wb.DataReader("099140.KS",data_source="yahoo")  #KODEX China H
+ETF6_df = wb.DataReader("101280.KS",data_source="yahoo")  #KODEX Japan
+ETF7_df = wb.DataReader("102780.KS",data_source="yahoo")  #KODEX Samsung Group
+ETF8_df = wb.DataReader("102960.KS",data_source="yahoo")  #Kodex Shipbuilding
+ETF9_df = wb.DataReader("102970.KS",data_source="yahoo")  #Samsung Kodex Securities ETF - Equity 
+ETF10_df = wb.DataReader("114260.KS",data_source="yahoo") #Samsung Kodex Treasury Bond Securities ETF - Bonds
+ETF11_df = wb.DataReader("114800.KS",data_source="yahoo") #Samsung Kodex Inverse ETF - Equity-Derivatives 
+ETF12_df = wb.DataReader("117460.KS",data_source="yahoo") #Kodex Energy & Chemicals 
+ETF13_df = wb.DataReader("117680.KS",data_source="yahoo") #KODEX Steels
+ETF14_df = wb.DataReader("117700.KS",data_source="yahoo") #KODEX Constructions 
+ETF15_df = wb.DataReader("122630.KS",data_source="yahoo") #Kodex Leverage 
+ETF16_df = wb.DataReader("132030.KS",data_source="yahoo") #Samsung KODEX Gold ETF - Gold-Derivatives
     # 시가, 종가 어느걸로? & 이거 데이터 불러들이는데 하루 단위인데 일주일 단위로 변환 필요
     
 HC_selec = input() # -> H.C 에서 여기서 (-1)을 곱해야 하나?
