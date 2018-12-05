@@ -22,7 +22,7 @@ ETF12_df = wb.DataReader("117460.KS",data_source="yahoo",start='2018-02-19',end=
 ETF13_df = wb.DataReader("117680.KS",data_source="yahoo",start='2018-02-19',end='2018-03-22') #KODEX Steels
 ETF14_df = wb.DataReader("117700.KS",data_source="yahoo",start='2018-02-19',end='2018-03-22') #KODEX Constructions 
 ETF15_df = wb.DataReader("122630.KS",data_source="yahoo",start='2018-02-19',end='2018-03-22') #Kodex Leverage 
-ETF16_df = wb.DataReader("132030.KS",data_source="yahoo",start='2018-02-19',end='2018-03-22') #Samsung KODEX Gold Futures Special Asset ETF - Gold-Derivatives
+ETF16_df = wb.DataReader("132030.KS",data_source="yahoo",start='2018-02-19',end='2018-03-22') #Samsung KODEX Gold ETF - Gold-Derivatives
     # 시가, 종가 어느걸로? & 이거 데이터 불러들이는데 하루 단위인데 일주일 단위로 변환 필요
     
 HC_selec = input() # -> H.C 에서 여기서 (-1)을 곱해야 하나?
